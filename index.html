@@ -1,0 +1,374 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhaiya Ki Padhai – We Make Education Fun</title>  <!-- Google Fonts -->  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">  <!-- AOS Animation Library -->  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">  <style>
+    :root {
+      --bg: #020617;
+      --text: #f8fafc;
+      --primary: #ff9800;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --card: #111827;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color: var(--light);
+      overflow-x: hidden;
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 15px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(2,6,23,0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    nav h2 {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #e5e7eb;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 120px 8% 60px;
+      gap: 40px;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+    }
+
+    .hero-text span {
+      color: var(--primary);
+    }
+
+    .hero-text p {
+      margin: 20px 0;
+      opacity: 0.85;
+    }
+
+    .hero-text button {
+      padding: 14px 30px;
+      background: var(--primary);
+      border: none;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero-text button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255,152,0,0.6);
+    }
+
+    .hero-img img {
+      width: 100%;
+      max-width: 420px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* ===== About Section ===== */
+    section {
+      padding: 90px 8%;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    .about h2 {
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+    }
+
+    /* ===== Courses ===== */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: linear-gradient(160deg, #020617, #111827);
+      padding: 30px;
+      border-radius: 20px;
+      transition: 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(255,152,0,0.3), transparent 60%);
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-12px) scale(1.03);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    /* ===== Form ===== */
+    .form-box {
+      max-width: 500px;
+      margin: auto;
+      background: rgba(17,24,39,0.9);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-box input, .form-box select {
+      width: 100%;
+      padding: 14px;
+      margin: 12px 0;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+    }
+
+    .form-box button {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #020617;
+      opacity: 0.8;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .hero, .about {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      nav div {
+        display: none;
+      }
+    }
+  /* ===== Animated Background ===== */
+    .bg-anim {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .bg-anim span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: rgba(255,152,0,0.15);
+      animation: move 20s linear infinite;
+      border-radius: 50%;
+    }
+    @keyframes move {
+      from { transform: translateY(110vh) scale(0); }
+      to { transform: translateY(-10vh) scale(1.2); }
+    }
+
+    /* ===== Teacher ===== */
+    .teacher {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      background: linear-gradient(135deg, #020617, #111827);
+      border-radius: 30px;
+      padding: 60px;
+    }
+    .teacher img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 50%;
+      box-shadow: 0 0 40px rgba(255,152,0,0.5);
+    }
+    .teacher h3 { color: var(--primary); font-size: 2rem; }
+    .teacher p { opacity: 0.85; }
+
+    @media (max-width: 900px) {
+      .teacher { grid-template-columns: 1fr; text-align: center; }
+    }
+  </style></head>
+<body>
+  <!-- Background Animation -->
+  <div class="bg-anim">
+    <span style="left:10%; animation-duration:18s"></span>
+    <span style="left:30%; animation-duration:22s"></span>
+    <span style="left:50%; animation-duration:25s"></span>
+    <span style="left:70%; animation-duration:20s"></span>
+    <span style="left:90%; animation-duration:28s"></span>
+  </div>  <!-- Navbar -->  <nav>
+    <button id="modeToggle" style="background:none;border:1px solid #fff;color:#fff;padding:6px 14px;border-radius:20px;cursor:pointer">🌙</button>
+    <h2>Bhaiya Ki Padhai</h2>
+    <div>
+      <a href="#about">About</a>
+      <a href="#courses">Courses</a>
+      <a href="#join">Join</a>
+    </div>
+  </nav>  <!-- Hero -->  <section class="hero">
+    <div class="hero-text" data-aos="fade-right">
+      <h1>Join the Army of <br><span>Bhaiya Ki Padhai</span></h1>
+      <p>Jahaan mehnat bhi hai, masti bhi! Classes 8 / 9 / 10 – CBSE & BSEB</p>
+      <button>Enroll Now</button>
+    </div>
+    <div class="hero-img" data-aos="zoom-in">
+      <!-- IMAGE 1: Poster image -->
+      <img src="image-poster.jpg" alt="Bhaiya Ki Padhai Poster">
+    </div>
+  </section>  <!-- About -->  <section id="about" class="about">
+    <img src="image-students.jpg" alt="Students Group" data-aos="fade-up">
+    <div data-aos="fade-left">
+      <h2>Why Bhaiya Ki Padhai?</h2>
+      <p>
+        Bhaiya Ki Padhai is not just a coaching, it’s a learning movement.
+        Fun teaching methods, real-life examples, and strong concepts that
+        help students score better and learn smarter.
+      </p>
+    </div>
+  </section>  <!-- Teacher Profile -->  <section>
+    <div class="teacher" data-aos="zoom-in">
+      <img src="teacher.jpg" alt="Rishi Bhaiya">
+      <div>
+        <h3>Rishi Bhaiya</h3>
+        <p><strong>Founder & Mentor – Bhaiya Ki Padhai</strong></p>
+        <p>
+          Known for making tough concepts super easy and fun.
+          Rishi Bhaiya believes that learning should never feel boring.
+          With interactive teaching and deep concept clarity, students
+          not only score high but enjoy studying.
+        </p>
+      </div>
+    </div>
+  </section>  <!-- Courses -->  <section id="courses">
+    <h2 data-aos="fade-down">Our Classes</h2>
+    <div class="cards">
+      <div class="card" data-aos="flip-left">
+        <h3>Class 8</h3>
+        <p>Strong foundation with fun + concept clarity.</p>
+      </div>
+      <div class="card" data-aos="flip-up">
+        <h3>Class 9</h3>
+        <p>Board-level preparation with smart techniques.</p>
+      </div>
+      <div class="card" data-aos="flip-right">
+        <h3>Class 10</h3>
+        <p>High scoring strategies + doubt solving.</p>
+      </div>
+    </div>
+  </section>  <!-- Testimonials -->  <section>
+    <h2 data-aos="fade-down">What Students Say</h2>
+    <div class="cards">
+      <div class="card" data-aos="fade-up">
+        <p>"Pehle padhna boring lagta tha, ab maza aata hai!"</p>
+        <h4>– Class 9 Student</h4>
+      </div>
+      <div class="card" data-aos="fade-up">
+        <p>"Concept clear ho gaye, marks bhi improve hue."</p>
+        <h4>– Class 10 Student</h4>
+      </div>
+      <div class="card" data-aos="fade-up">
+        <p>"Best coaching with fun + discipline."</p>
+        <h4>– Class 8 Student</h4>
+      </div>
+    </div>
+  </section>  <!-- Join Form -->  <section id="join">
+    <h2 data-aos="fade-down">Join Now</h2>
+    <div class="form-box" data-aos="zoom-in">
+      <input type="text" placeholder="Student Name" required>
+      <input type="tel" placeholder="Mobile Number" required>
+      <select>
+        <option>Select Class</option>
+        <option>Class 8</option>
+        <option>Class 9</option>
+        <option>Class 10</option>
+      </select>
+      <button>Submit</button>
+    </div>
+  </section>  <footer>
+    © 2026 Bhaiya Ki Padhai | We Make Education Fun
+  </footer>  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>  <script>
+    const toggle=document.getElementById('modeToggle');
+    let dark=true;
+    toggle.onclick=()=>{
+      dark=!dark;
+      document.documentElement.style.setProperty('--bg',dark?'#020617':'#f8fafc');
+      document.documentElement.style.setProperty('--text',dark?'#f8fafc':'#020617');
+      toggle.textContent=dark?'🌙':'☀️';
+    };
+    AOS.init({ duration: 1000, once: true });
+  </script></body>
+</html>
+
